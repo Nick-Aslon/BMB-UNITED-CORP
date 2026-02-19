@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMB United Corp. | Chicago Trucking & Logistics</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BMB United Corp. is a Chicago-based trucking and logistics company providing reliable freight, regional, and nationwide transportation solutions.">
+    <style>
+        :root {
+            --primary: #0b3c5d;
+            --primary-light: #145b8a;
+            --accent: #f9a825;
+            --accent-dark: #c17900;
+            --bg: #f4f6f8;
+            --text: #222;
+            --muted: #666;
+            --white: #ffffff;
+            --danger: #c62828;
+            --success: #2e7d32;
+            --shadow-soft: 0 10px 25px rgba(0,0,0,0.08);
+            --radius-lg: 14px;
+            --radius-md: 10px;
+            --radius-sm: 6px;
+            --transition-fast: 0.18s ease-out;
+            --transition-med: 0.25s ease;
+            --max-width: 1180px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        ul {
+            padding-left: 1.2rem;
+        }
+
+        /* Layout */
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(11, 60, 93, 0.98);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+        }
+
+        .nav {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0.6rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-mark {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text span:first-child {
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            font-size: 0.95rem;
+            color: #fdfdfd;
+        }
+
+        .logo-text span:last-child {
+            font-size: 0.75rem;
+            color: #cfd8dc;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            font-size: 0.9rem;
+            color: #e3f2fd;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding-bottom: 0.15rem;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -0.2rem;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width var(--transition-fast);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            padding: 0.45rem 0.9rem;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #1b1b1b;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+            border: none;
+            cursor: pointer;
+            transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+        }
+
+        .nav-toggle {
+            display: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.4);
+            background: transparent;
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .nav-toggle span {
+            font-size: 1.1rem;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        .section {
+            padding: 3.5rem 1.25rem;
+        }
+
+        .section-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+        }
+
+        .section-kicker {
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            font-size: 0.75rem;
+            color: var(--accent-dark);
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin: 0.4rem 0;
+            color: var(--primary);
+        }
+
+        .section-subtitle {
+            max-width: 640px;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* Hero */
+
+        .hero {
+            padding: 4.5rem 1.25rem 3.5rem;
+            background: radial-gradient(circle at top left, #1e88e5 0, #0b3c5d 40%, #02121f 100%);
+            color: #fff;
+        }
+
+        .hero-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .hero-eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 0.75rem;
+            color: #ffecb3;
+            font-weight: 700;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 3.1vw + 1.4rem, 3.1rem);
+            margin: 0.6rem 0 0.4rem;
+            line-height: 1.1;
+        }
+
+        .hero-title span {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            max-width: 520px;
+            color: #e3f2fd;
+            font-size: 0.98rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin-bottom: 1.4rem;
+        }
+
+        .hero-badge {
+            padding: 0.25rem 0.7rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.25);
+            font-size: 0.75rem;
+            color: #e1f5fe;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .hero-badge-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: #66bb6a;
+        }
+
+        .hero-cta-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .btn-primary {
+            padding: 0.7rem 1.4rem;
+            border-radius: 999px;
+            border: none;
+            background: var(--accent);
+            color: #1b1b1b;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+            transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.4);
+        }
+
+        .btn-secondary {
+            padding: 0.65rem 1.2rem;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.6);
+            background: transparent;
+            color: #e3f2fd;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: background var(--transition-fast), color var(--transition-fast), border-color var(--transition-fast);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.08);
+            border-color: #fff;
+        }
+
+        .hero-meta {
+            font-size: 0.8rem;
+            color: #b0bec5;
+        }
+
+        .hero-meta strong {
+            color: #fff;
+        }
+
+        .hero-right {
+            position: relative;
+        }
+
+        .hero-card {
+            background: rgba(2, 22, 36, 0.9);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.3rem;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.55);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .hero-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.9rem;
+        }
+
+        .hero-card-title {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #e3f2fd;
+        }
+
+        .hero-card-pill {
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: rgba(76, 175, 80, 0.12);
+            color: #a5d6a7;
+            font-size: 0.7rem;
+            border: 1px solid rgba(129, 199, 132, 0.4);
+        }
+
+        .hero-card-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-stat {
+            padding: 0.6rem 0.7rem;
+            border-radius: var(--radius-md);
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .hero-stat-label {
+            font-size: 0.7rem;
+            color: #90a4ae;
+        }
+
+        .hero-stat-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #e3f2fd;
+        }
+
+        .hero-route {
+            margin-top: 0.4rem;
+            font-size: 0.7rem;
+            color: #b0bec5;
+        }
+
+        .hero-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #b0bec5;
+        }
+
+        .hero-card-footer span strong {
+            color: #fff;
+        }
+
+        .hero-floating-tag {
+            position: absolute;
+            right: -10px;
+            top: -14px;
+            padding: 0.35rem 0.7rem;
+            border-radius: 999px;
+            background: #263238;
+            color: #eceff1;
+            font-size: 0.7rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .hero-floating-tag span {
+            color: #ffeb3b;
+        }
+
+        .hero-badge-strip {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            font-size: 0.7rem;
+            color: #b0bec5;
+        }
+
+        .hero-badge-strip span {
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            border: 1px solid rgba(176,190,197,0.4);
+        }
+
+        /* Services */
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.4rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.3rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 12px;
+            background: rgba(11,60,93,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+
+        .service-title {
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary);
+        }
+
+        .service-body {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .service-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 0.4rem;
+        }
+
+        .service-tag {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 0.7rem;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background: rgba(249,168,37,0.12);
+            color: var(--accent-dark);
+            border: 1px solid rgba(249,168,37,0.4);
+        }
+
+        /* About */
+
+        .about-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .about-text p {
+            font-size: 0.95rem;
+            color: var(--muted);
+        }
+
+        .about-text p + p {
+            margin-top: 0.7rem;
+        }
+
+        .about-list {
+            margin-top: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .about-list li {
+            margin-bottom: 0.3rem;
+        }
+
+        .about-highlight {
+            margin-top: 1rem;
+            padding: 0.8rem 0.9rem;
+            border-radius: var(--radius-md);
+            background: #e3f2fd;
+            border-left: 4px solid var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .about-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.3rem 1.2rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e0e0e0;
+        }
+
+        .about-card-header {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.6rem;
+        }
+
+        .about-stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .about-stat-label {
+            color: var(--muted);
+        }
+
+        .about-stat-value {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .about-pill-row {
+            margin-top: 0.8rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+        }
+
+        .about-pill {
+            padding: 0.2rem 0.6rem;
+            border-radius: 999px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Fleet */
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.3rem;
+        }
+
+        .fleet-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.2rem 1.1rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .fleet-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .fleet-meta {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .fleet-capacity {
+            font-size: 0.85rem;
+            color: var(--primary-light);
+        }
+
+        .fleet-tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+            margin-top: 0.4rem;
+            font-size: 0.75rem;
+        }
+
+        .fleet-tag {
+            padding: 0.15rem 0.55rem;
+            border-radius: 999px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Coverage map (fake) */
+
+        .coverage-card {
+            margin-top: 2rem;
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.3rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e0e0e0;
+        }
+
+        .coverage-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 1.4rem;
+        }
+
+        .coverage-map {
+            border-radius: var(--radius-md);
+            background: linear-gradient(135deg, #0b3c5d, #1e88e5);
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coverage-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 0 6px rgba(249,168,37,0.25);
+        }
+
+        .coverage-dot.chicago {
+            left: 48%;
+            top: 42%;
+        }
+
+        .coverage-dot.label::after {
+            content: "Chicago HQ";
+            position: absolute;
+            left: 14px;
+            top: -4px;
+            font-size: 0.7rem;
+            color: #fff;
+            white-space: nowrap;
+        }
+
+        .coverage-legend {
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+
+        .coverage-legend ul {
+            margin-top: 0.4rem;
+        }
+
+        /* Testimonials */
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.3rem;
+        }
+
+        .testimonial-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.2rem 1.1rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e0e0e0;
+            font-size: 0.9rem;
+            color: var(--muted);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            margin-bottom: 0.7rem;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            color: var(--primary);
+            font-size: 0.85rem;
+        }
+
+        .testimonial-role {
+            font-size: 0.8rem;
+            color: var(--muted);
+        }
+
+        .testimonial-badge {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.4rem;
+            color: #e0e0e0;
+        }
+
+        /* CTA strip */
+
+        .cta-strip {
+            margin-top: 2.5rem;
+            background: linear-gradient(135deg, var(--primary), #1e88e5);
+            border-radius: var(--radius-lg);
+            padding: 1.6rem 1.4rem;
+            color: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .cta-strip-text {
+            max-width: 520px;
+        }
+
+        .cta-strip-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .cta-strip-sub {
+            font-size: 0.9rem;
+            color: #e3f2fd;
+        }
+
+        .cta-strip-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .cta-strip-note {
+            font-size: 0.75rem;
+            color: #cfd8dc;
+        }
+
+        /* Contact */
+
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            gap: 2rem;
+        }
+
+        .contact-form-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.3rem;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid #e0e0e0;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .form-group {
+            margin-bottom: 0.9rem;
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 0.25rem;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 0.55rem 0.6rem;
+            border-radius: var(--radius-sm);
+            border: 1px solid #cfd8dc;
+            font-size: 0.85rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+            background: #fafafa;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 2px rgba(30,136,229,0.18);
+            background: #fff;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .form-helper {
+            font-size: 0.75rem;
+            color: var(--muted);
+            margin-top: 0.15rem;
+        }
+
+        .form-error {
+            font-size: 0.75rem;
+            color: var(--danger);
+            margin-top: 0.15rem;
+            display: none;
+        }
+
+        .form-success {
+            font-size: 0.8rem;
+            color: var(--success);
+            margin-top: 0.4rem;
+            display: none;
+        }
+
+        .btn-submit {
+            padding: 0.65rem 1.4rem;
+            border-radius: 999px;
+            border: none;
+            background: var(--primary-light);
+            color: #fff;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+        }
+
+        .btn-submit:hover {
+            background: #1976d2;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(0,0,0,0.3);
+        }
+
+        .contact-info-card {
+            background: #0b3c5d;
+            color: #e3f2fd;
+            border-radius: var(--radius-lg);
+            padding: 1.4rem 1.3rem;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.12);
+        }
+
+        .contact-info-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.6rem;
+        }
+
+        .contact-info-item {
+            font-size: 0.9rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .contact-info-item span {
+            display: inline-block;
+            min-width: 70px;
+            color: #b0bec5;
+        }
+
+        .contact-badge {
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            color: #cfd8dc;
+        }
+
+        .contact-hours {
+            margin-top: 0.8rem;
+            font-size: 0.8rem;
+            color: #cfd8dc;
+        }
+
+        .contact-hours strong {
+            color: #fff;
+        }
+
+        .contact-note {
+            margin-top: 0.7rem;
+            font-size: 0.75rem;
+            color: #b0bec5;
+        }
+
+        /* Footer */
+
+        footer {
+            background: #02121f;
+            color: #b0bec5;
+            padding: 1.6rem 1.25rem 1.2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-left span {
+            display: block;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: flex-end;
+        }
+
+        .footer-links a {
+            color: #cfd8dc;
+            font-size: 0.8rem;
+        }
+
+        .footer-links a:hover {
+            color: #fff;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 960px) {
+            .hero-inner {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .hero-right {
+                order: -1;
+            }
+
+            .services-grid,
+            .fleet-grid,
+            .testimonials-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-layout,
+            .coverage-grid,
+            .contact-layout,
+            .footer-inner {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .footer-links {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .nav-links {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 100%;
+                background: rgba(11,60,93,0.98);
+                padding: 0.7rem 1.25rem 0.9rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.7rem;
+                transform: translateY(-10px);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity var(--transition-med), transform var(--transition-med);
+            }
+
+            .nav-links.open {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .nav-toggle {
+                display: inline-flex;
+            }
+
+            .hero {
+                padding-top: 4rem;
+            }
+
+            .services-grid,
+            .fleet-grid,
+            .testimonials-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .cta-strip {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <header>
+        <nav class="nav">
+            <div class="nav-left">
+                <div class="logo-mark">B</div>
+                <div class="logo-text">
+                    <span>BMB UNITED CORP.</span>
+                    <span>Chicago Trucking & Logistics</span>
+                </div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#fleet">Fleet</a>
+                <a href="#testimonials">Clients</a>
+                <a href="#contact">Contact</a>
+                <button class="nav-cta" onclick="scrollToSection('contact')">Request a Quote</button>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span>☰</span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="top">
+            <div class="hero-inner">
+                <div class="hero-left">
+                    <div class="hero-eyebrow">Chicago-based trucking company</div>
+                    <h1 class="hero-title">
+                        Reliable freight moves from <span>Chicago</span> to every major lane.
+                    </h1>
+                    <p class="hero-subtitle">
+                        BMB United Corp. keeps freight moving with on-time, asset-based trucking services.
+                        From regional Midwest runs to nationwide lanes, we deliver consistency, visibility,
+                        and a team that actually picks up the phone.
+                    </p>
+                    <div class="hero-badges">
+                        <div class="hero-badge">
+                            <span class="hero-badge-dot"></span>
+                            Live dispatch out of Chicago, IL
+                        </div>
+                        <div class="hero-badge">
+                            24/7 load monitoring
+                        </div>
+                        <div class="hero-badge">
+                            Asset-based & partner carrier network
+                        </div>
+                    </div>
+                    <div class="hero-cta-row">
+                        <button class="btn-primary" onclick="scrollToSection('contact')">
+                            Get a freight quote
+                        </button>
+                        <button class="btn-secondary" onclick="scrollToSection('services')">
+                            View services
+                        </button>
+                    </div>
+                    <div class="hero-meta">
+                        <strong>Same-day responses</strong> on quote requests · Serving shippers, brokers, and 3PLs.
+                    </div>
+                </div>
+                <div class="hero-right">
+                    <div class="hero-card">
+                        <div class="hero-card-header">
+                            <div class="hero-card-title">Live lane snapshot</div>
+                            <div class="hero-card-pill">Chicago HQ · IL</div>
+                        </div>
+                        <div class="hero-card-grid">
+                            <div class="hero-stat">
+                                <div class="hero-stat-label">Trucks on the road</div>
+                                <div class="hero-stat-value" id="statTrucks">32</div>
+                                <div class="hero-route">Dry van · Reefer · Flatbed</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-label">On-time performance</div>
+                                <div class="hero-stat-value" id="statOnTime">98.4%</div>
+                                <div class="hero-route">Last 90 days</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-label">Average response time</div>
+                                <div class="hero-stat-value" id="statResponse">12 min</div>
+                                <div class="hero-route">Dispatch & updates</div>
+                            </div>
+                            <div class="hero-stat">
+                                <div class="hero-stat-label">Primary lanes</div>
+                                <div class="hero-stat-value">Midwest · East · South</div>
+                                <div class="hero-route">Chicago outbound & inbound</div>
+                            </div>
+                        </div>
+                        <div class="hero-card-footer">
+                            <span>Live from <strong>Chicago, IL</strong></span>
+                            <span>DOT & MC available upon request</span>
+                        </div>
+                    </div>
+                    <div class="hero-floating-tag">
+                        <span>Since 2012</span> · Family-owned carrier
+                    </div>
+                    <div class="hero-badge-strip">
+                        <span>Hazmat-ready partners</span>
+                        <span>Drop & hook options</span>
+                        <span>Trailer pool in Chicagoland</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="section" id="services">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-kicker">Services</div>
+                    <h2 class="section-title">Trucking & logistics built around your freight.</h2>
+                    <p class="section-subtitle">
+                        BMB United Corp. combines company trucks, vetted partner carriers, and a Chicago-based dispatch
+                        team to keep your freight moving. Whether you’re a shipper, broker, or 3PL, we plug into your
+                        operation like an extension of your team.
+                    </p>
+                </div>
+                <div class="services-grid">
+                    <article class="service-card">
+                        <div class="service-icon">🚚</div>
+                        <div class="service-title">Regional & nationwide truckload</div>
+                        <div class="service-body">
+                            Full truckload (FTL) coverage from Chicago across the Midwest, East Coast, and Southern
+                            states. Dry van, reefer, and select flatbed capacity with consistent lanes and reliable
+                            drivers.
+                        </div>
+                        <div class="service-meta">
+                            Ideal for: retail, food & beverage, manufacturing, packaging, and general freight.
+                        </div>
+                        <div class="service-tag">Core service</div>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">📦</div>
+                        <div class="service-title">Dedicated & contract lanes</div>
+                        <div class="service-body">
+                            Lock in predictable capacity with dedicated trucks and contract lanes. We work with your
+                            shipping patterns to design routes that reduce dwell time and keep your freight flowing.
+                        </div>
+                        <div class="service-meta">
+                            Options for drop trailers, recurring pickups, and multi-stop routes.
+                        </div>
+                        <div class="service-tag">For shippers</div>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">🏭</div>
+                        <div class="service-title">Chicagoland shuttle & yard moves</div>
+                        <div class="service-body">
+                            Local shuttle runs between plants, warehouses, and rail ramps in the greater Chicago area.
+                            Keep your docks clear and your production lines supplied with flexible, on-call capacity.
+                        </div>
+                        <div class="service-meta">
+                            Serving Chicago, Joliet, Elgin, Aurora, and surrounding industrial hubs.
+                        </div>
+                        <div class="service-tag">Local</div>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">🧊</div>
+                        <div class="service-title">Temperature-controlled freight</div>
+                        <div class="service-body">
+                            Refrigerated capacity for food, beverage, and temperature-sensitive products. We monitor
+                            set points, transit times, and delivery windows to protect your product and your brand.
+                        </div>
+                        <div class="service-meta">
+                            Reefer trailers with continuous monitoring and experienced drivers.
+                        </div>
+                        <div class="service-tag">Reefer</div>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">📡</div>
+                        <div class="service-title">Real-time visibility & updates</div>
+                        <div class="service-body">
+                            GPS tracking, proactive check calls, and a dispatch team that actually answers. We keep you
+                            ahead of delays with honest, real-time communication.
+                        </div>
+                        <div class="service-meta">
+                            ELD-integrated tracking and custom update schedules for your team.
+                        </div>
+                        <div class="service-tag">Visibility</div>
+                    </article>
+                    <article class="service-card">
+                        <div class="service-icon">🤝</div>
+                        <div class="service-title">Broker & 3PL partnerships</div>
+                        <div class="service-body">
+                            We understand the broker and 3PL world. Clear communication, clean paperwork, and on-time
+                            performance that keeps your customers happy and your carrier score strong.
+                        </div>
+                        <div class="service-meta">
+                            Ask about primary carrier programs and seasonal surge support.
+                        </div>
+                        <div class="service-tag">For brokers</div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section class="section" id="about">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-kicker">About BMB United Corp.</div>
+                    <h2 class="section-title">Chicago roots. Nationwide reach.</h2>
+                    <p class="section-subtitle">
+                        BMB United Corp. is a family-owned trucking company based in Chicago, Illinois. We started with
+                        a single truck and a simple promise: show up on time, communicate clearly, and treat every load
+                        like it matters—because it does.
+                    </p>
+                </div>
+                <div class="about-layout">
+                    <div class="about-text">
+                        <p>
+                            Today, BMB United Corp. runs a growing fleet of trucks and trailers, supported by a dispatch
+                            and operations team that knows the Chicago market inside and out. We move freight for
+                            manufacturers, distributors, food and beverage brands, and logistics providers who need a
+                            carrier they can trust.
+                        </p>
+                        <p>
+                            Chicago is one of the busiest freight hubs in North America. That means congestion,
+                            weather, and constant change. Our job is to absorb that complexity so your freight keeps
+                            moving—without you having to chase updates or wonder where your load is.
+                        </p>
+                        <ul class="about-list">
+                            <li>Headquartered in Chicago, IL with operations across the Midwest and beyond.</li>
+                            <li>Experienced drivers who know urban, regional, and long-haul routes.</li>
+                            <li>Safety-first culture backed by training, maintenance, and compliance.</li>
+                            <li>Flexible enough to move fast, structured enough to scale with you.</li>
+                        </ul>
+                        <div class="about-highlight">
+                            “We built BMB United Corp. to be the carrier we wished we had when we were on the shipping
+                            side—straightforward, responsive, and serious about doing what we say we’ll do.”
+                        </div>
+                    </div>
+                    <aside class="about-card">
+                        <div class="about-card-header">By the numbers</div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">Years in operation</div>
+                            <div class="about-stat-value">10+ years</div>
+                        </div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">Average on-time rate</div>
+                            <div class="about-stat-value">98%+</div>
+                        </div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">Primary lanes</div>
+                            <div class="about-stat-value">Midwest · East · South</div>
+                        </div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">HQ</div>
+                            <div class="about-stat-value">Chicago, IL</div>
+                        </div>
+                        <div class="about-pill-row">
+                            <div class="about-pill">Family-owned</div>
+                            <div class="about-pill">Asset-based</div>
+                            <div class="about-pill">Broker-friendly</div>
+                            <div class="about-pill">24/7 dispatch</div>
+                            <div class="about-pill">Safety-focused</div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet & Coverage -->
+        <section class="section" id="fleet">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-kicker">Fleet & coverage</div>
+                    <h2 class="section-title">The right equipment for the lanes you run.</h2>
+                    <p class="section-subtitle">
+                        From dry vans to reefers, our fleet is spec’d for reliability and efficiency. We combine our
+                        own assets with a vetted carrier network to cover your freight without sacrificing standards.
+                    </p>
+                </div>
+                <div class="fleet-grid">
+                    <article class="fleet-card">
+                        <div class="fleet-title">53' Dry Van</div>
+                        <div class="fleet-meta">
+                            Standard full truckload capacity for general freight, retail, packaging, and more.
+                        </div>
+                        <div class="fleet-capacity">
+                            Typical payload: up to 45,000 lbs · Palletized and floor-loaded freight.
+                        </div>
+                        <div class="fleet-tag-row">
+                            <span class="fleet-tag">Most common</span>
+                            <span class="fleet-tag">Drop & hook options</span>
+                        </div>
+                    </article>
+                    <article class="fleet-card">
+                        <div class="fleet-title">Refrigerated (Reefer)</div>
+                        <div class="fleet-meta">
+                            Temperature-controlled trailers for food, beverage, and sensitive products requiring
+                            consistent conditions.
+                        </div>
+                        <div class="fleet-capacity">
+                            Temperature monitoring · Multi-stop and appointment deliveries.
+                        </div>
+                        <div class="fleet-tag-row">
+                            <span class="fleet-tag">Food & beverage</span>
+                            <span class="fleet-tag">Cold chain</span>
+                        </div>
+                    </article>
+                    <article class="fleet-card">
+                        <div class="fleet-title">Flatbed & specialized (via partners)</div>
+                        <div class="fleet-meta">
+                            Access to flatbed and specialized equipment through trusted carrier partners for select
+                            projects and lanes.
+                        </div>
+                        <div class="fleet-capacity">
+                            Oversized, construction materials, and project-based freight.
+                        </div>
+                        <div class="fleet-tag-row">
+                            <span class="fleet-tag">Project freight</span>
+                            <span class="fleet-tag">Partner network</span>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="coverage-card">
+                    <div class="coverage-grid">
+                        <div>
+                            <h3 style="margin:0 0 0.4rem;font-size:1rem;color:var(--primary);">
+                                Chicago at the center of your supply chain.
+                            </h3>
+                            <p style="font-size:0.9rem;color:var(--muted);margin:0 0 0.7rem;">
+                                Our operations are built around Chicago’s strategic position as a national freight hub.
+                                From here, we reach major distribution centers, ports, and rail ramps across the
+                                Midwest, East Coast, and Southern states.
+                            </p>
+                            <div class="coverage-legend">
+                                <strong>Typical outbound lanes from Chicago:</strong>
+                                <ul>
+                                    <li>Midwest: IL, IN, WI, MI, OH, IA, MN, MO</li>
+                                    <li>East: PA, NJ, NY, MD, VA, MA and surrounding states</li>
+                                    <li>South: TX, GA moving—without you having to chase updates or wonder where your load is.
+                        </p>
+                        <ul class="about-list">
+                            <li>Headquartered in Chicago, IL with operations across the Midwest and beyond.</li>
+                            <li>Experienced drivers who know urban, regional, and long-haul routes.</li>
+                            <li>Safety-first culture backed by training, maintenance, and compliance.</li>
+                            <li>Flexible enough to move fast, structured enough to scale with you.</li>
+                        </ul>
+                        <div class="about-highlight">
+                            “We built BMB United Corp. to be the carrier we wished we had when we were on the shipping
+                            side—straightforward, responsive, and serious about doing what we say we’ll do.”
+                        </div>
+                    </div>
+                    <aside class="about-card">
+                        <div class="about-card-header">By the numbers</div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">Years in operation</div>
+                            <div class="about-stat-value">10+ years</div>
+                        </div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">Average on-time rate</div>
+                            <div class="about-stat-value">98%+</div>
+                        </div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">Primary lanes</div>
+                            <div class="about-stat-value">Midwest · East · South</div>
+                        </div>
+                        <div class="about-stat-row">
+                            <div class="about-stat-label">HQ</div>
+                            <div class="about-stat-value">Chicago, IL</div>
+                        </div>
+                        <div class="about-pill-row">
+                            <div class="about-pill">Family-owned</div>
+                            <div class="about-pill">Asset-based</div>
+                            <div class="about-pill">Broker-friendly</div>
+                            <div class="about-pill">24/7 dispatch</div>
+                            <div class="about-pill">Safety-focused</div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fleet & Coverage -->
+        <section class="section" id="fleet">
+            <div class="section-inner">
+                <div class="section-header">
+                    <div class="section-kicker">Fleet & coverage</div>
+                    <h2 class="section-title">The right equipment, TN, KY, NC, SC </h2>
+                                                    <div class="hero-route">Active lanes updating live</div>
+                            </div>
+                        </div>
+                        <div class="hero-card-footer">
+                            <span>Updated <strong>just now</strong></span>
+                            <span>Dispatch · 24/7</span>
+                        </div>
+                    </div>
+                    <div class="hero-floating-tag">
+                        Live <span>Now</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Placeholder sections (empty but valid) -->
+        <section id="services" class="section">
+            <div class="section-inner"></div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="section-inner"></div>
+        </section>
+
+        <section id="fleet" class="section">
+            <div class="section-inner"></div>
+        </section>
+
+        <section id="testimonials" class="section">
+            <div class="section-inner"></div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="section-inner"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-inner"></div>
+    </footer>
+</div>
+
+<script>
+    // Mobile nav toggle
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    navToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('open');
+    });
+
+    function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>
